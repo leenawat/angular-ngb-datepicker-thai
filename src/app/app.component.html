@@ -2,26 +2,19 @@
   <div class="card mt-4">
     <div class="card-body">
 
-      <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <form name="editForm" role="form" [formGroup]="editForm">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="dateOfBirth" ngbDatepicker
+            <input class="form-control" placeholder="dd/mm/yyyy" name="dp" formControlName="dateOfBirth" ngbDatepicker
               #d="ngbDatepicker" [minDate]="minDate">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
             </div>
           </div>
         </div>
-        <div class="form-group">
-
-          <button type="submit" class="btn btn-primary ml-1">
-            <span>Save</span>
-          </button>
-        </div>
       </form>
-
       <hr />
-      <pre>Model: {{ user | json }}</pre>
+      {{ editForm.get('dateOfBirth')?.value }} 
     </div>
   </div>
 

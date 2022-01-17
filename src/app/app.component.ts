@@ -9,15 +9,13 @@ import { NgbCalendar, NgbDate, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 })
 export class AppComponent  implements OnInit {
   title = 'angular-ngb-datepicker-thai';
-  user = {
-    dateOfBirth: '1987-01-01'
-  };
 
   minDate: NgbDateStruct = {
     year: 2400, // ตั้งเป็น พศ.
     month: 1,
     day: 1
   }
+  
   editForm = this.fb.group({
     dateOfBirth: [],
   })
@@ -27,11 +25,7 @@ export class AppComponent  implements OnInit {
 
   ngOnInit(): void {
     this.editForm.patchValue({
-      dateOfBirth: this.user.dateOfBirth
+      dateOfBirth: '1987-12-31'
     });
-  }
-
-  save(){
-    this.user.dateOfBirth = this.editForm.get(['dateOfBirth'])!.value
   }
 }
